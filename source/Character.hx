@@ -54,9 +54,16 @@ class Character extends FlxSprite
 		switch (curCharacter)
 		{
 			case 'bf':
-				frames = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
+				FlxG.random.bool((1 / 4096) * 100))
+                                {
+				   frames = Paths.getSparrowAtlas('characters/BOYFRIEND_Shiny', 'shared');
+                                }
+                                else
+                                {
+				   frames = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
+                                }
 				
-				animation.addByPrefix('idle', 'BF IDLE DANCE', 24, false);
+				animation.addByPrefix('idle', 'BF idle dance', 24, false);
 				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
 				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
 				animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);
@@ -79,7 +86,7 @@ class Character extends FlxSprite
 				skins.set('gfSkin', 'gf');
 				skins.set('3d', 'bf-3d');
 
-				barColor = FlxColor.fromRGB(65, 84, 227);
+				barColor = FlxColor.fromRGB(49, 176, 209);
 
 				playAnim('idle');
 
