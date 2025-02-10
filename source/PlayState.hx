@@ -516,7 +516,7 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
-	        if (['bf-shiny'].contains(boyfriend.curCharacter()) && FlxG.random.int(1, 4096) * 100)
+		if (boyfriend.curCharacter == 'bf-shiny' && FlxG.random.bool(1, 4096) * 100)
 	        {
 	             boyfriend.curCharacter == 'bf-shiny';
 	        }
