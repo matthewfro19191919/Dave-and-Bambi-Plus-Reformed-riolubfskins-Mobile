@@ -54,7 +54,7 @@ class Character extends FlxSprite
 		switch (curCharacter)
 		{
 			case 'bf':
-				FlxG.random.bool((1 / 4096) * 100))
+				FlxG.random.bool((1 / 4096) * 100)
                                 {   
 				   curCharacter:String = 'bf-shiny';
 				   frames = Paths.getSparrowAtlas('characters/BOYFRIEND_Shiny', 'shared');
