@@ -516,14 +516,14 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
-		if (boyfriend.curCharacter == 'bf-shiny') && FlxG.random.int(1, 4096) * 100)
-                {
-	        	boyfriend.curCharacter == 'bf-shiny'
-                }
-                else
-		{	
-	        	boyfriend.curCharacter == 'bf'
-                }
+	        if (['bf-shiny'].contains(boyfriend.curCharacter()) && FlxG.random.int(1, 4096) * 100)
+	        {
+	             boyfriend.curCharacter == 'bf-shiny'
+	        }
+		else
+	        {	
+	             boyfriend.curCharacter == 'bf'
+		}
 
 		Paths.clearStoredMemory();
 
