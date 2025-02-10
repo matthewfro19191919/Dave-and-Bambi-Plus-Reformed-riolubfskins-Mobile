@@ -54,14 +54,7 @@ class Character extends FlxSprite
 		switch (curCharacter)
 		{
 			case 'bf':
-				FlxG.random.bool((1 / 4096) * 100))
-                                {
-				   frames = Paths.getSparrowAtlas('characters/BOYFRIEND_Shiny', 'shared');
-                                }
-                                else
-                                {
-				   frames = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
-                                }
+				frames = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
 				
 				animation.addByPrefix('idle', 'BF idle dance', 24, false);
 				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
