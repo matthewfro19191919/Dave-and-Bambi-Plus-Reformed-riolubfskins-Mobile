@@ -518,11 +518,11 @@ class PlayState extends MusicBeatState
 	{
 	        if (['bf-shiny'].contains(boyfriend.curCharacter()) && FlxG.random.int(1, 4096) * 100)
 	        {
-	             boyfriend.curCharacter == 'bf-shiny'
+	             boyfriend.curCharacter == 'bf-shiny';
 	        }
 		else
 	        {	
-	             boyfriend.curCharacter == 'bf'
+	             boyfriend.curCharacter == 'bf';
 		}
 
 		Paths.clearStoredMemory();
