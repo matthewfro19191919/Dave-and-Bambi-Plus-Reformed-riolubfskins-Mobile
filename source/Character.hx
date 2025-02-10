@@ -53,9 +53,9 @@ class Character extends FlxSprite
 
 		switch (curCharacter)
 		{
-	         	if (FlxG.random.bool((1 / 4096) * 100)) {
+			for (i in 1 / 4096) {
 			case 'bf-shiny':
-				frames = Paths.getSparrowAtlas('characters/BOYFRIEND_Shiny', 'shared');
+				frames = Paths.getSparrowAtlas('characters/BOYFRIEND_shiny', 'shared');
 				
 				animation.addByPrefix('idle', 'BF idle dance', 24, false);
 				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
@@ -87,10 +87,9 @@ class Character extends FlxSprite
 				nativelyPlayable = true;
 
 				flipX = true;
-	         	}
-	         	else {
+			} else {
 			case 'bf':
-				   frames = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
+				frames = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
 				
 				animation.addByPrefix('idle', 'BF idle dance', 24, false);
 				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
@@ -110,7 +109,7 @@ class Character extends FlxSprite
 				animation.addByPrefix('scared', 'BF idle shaking', 24);
 				animation.addByPrefix('hit', 'BF hit', 24, false);
 
-				loadOffsetFile(curCharacter);
+				loadOffsetFile('bf');
 
 				skins.set('gfSkin', 'gf');
 				skins.set('3d', 'bf-3d');
@@ -122,7 +121,7 @@ class Character extends FlxSprite
 				nativelyPlayable = true;
 
 				flipX = true;
-	         	}
+			}
 			case 'bf-3d':
 				frames = Paths.getSparrowAtlas('characters/3d_bf', 'shared');
 
