@@ -516,6 +516,15 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
+		if (boyfriend.curCharacter('bf-shiny') && FlxG.random.bool((1 / 4096) * 100))
+                {
+	        	boyfriend.curCharacter('bf-shiny');
+                }
+                else
+		{	
+	        	boyfriend.curCharacter('bf');
+                }
+
 		Paths.clearStoredMemory();
 
 		var compactCombo:String = formatCompactNumber(combo);
