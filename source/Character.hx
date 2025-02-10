@@ -53,8 +53,7 @@ class Character extends FlxSprite
 
 		switch (curCharacter)
 		{
-	         	FlxG.random.bool((1 / 4096) * 100);
-	         	{
+	         	if (FlxG.random.bool((1 / 4096) * 100)) {
 			case 'bf-shiny':
 				frames = Paths.getSparrowAtlas('characters/BOYFRIEND_Shiny', 'shared');
 				
@@ -89,8 +88,7 @@ class Character extends FlxSprite
 
 				flipX = true;
 	         	}
-	         	else
-			{
+	         	else {
 			case 'bf':
 				   frames = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
 				
