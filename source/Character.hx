@@ -56,7 +56,40 @@ class Character extends FlxSprite
 			case 'bf':
 				frames = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
 				
-				animation.addByPrefix('idle', 'BF idle dance', 24, false);
+				animation.addByPrefix('idle', 'BF IDLE DANCE', 24, false);
+				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
+				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
+				animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);
+				animation.addByPrefix('singDOWN', 'BF NOTE DOWN0', 24, false);
+				animation.addByPrefix('singUPmiss', 'BF NOTE UP MISS', 24, false);
+				animation.addByPrefix('singLEFTmiss', 'BF NOTE LEFT MISS', 24, false);
+				animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
+				animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
+				animation.addByPrefix('hey', 'BF HEY', 24, false);
+
+				animation.addByPrefix('firstDeath', "BF dies", 24, false);
+				animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
+				animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
+				animation.addByPrefix('dodge', "boyfriend dodge", 24, false);
+				animation.addByPrefix('scared', 'BF idle shaking', 24);
+				animation.addByPrefix('hit', 'BF hit', 24, false);
+
+				loadOffsetFile(curCharacter);
+
+				skins.set('gfSkin', 'gf');
+				skins.set('3d', 'bf-3d');
+
+				barColor = FlxColor.fromRGB(49, 176, 209);
+
+				playAnim('idle');
+
+				nativelyPlayable = true;
+
+				flipX = true;
+			case 'bf-shiny':
+				frames = Paths.getSparrowAtlas('characters/BOYFRIEND_Shiny', 'shared');
+				
+				animation.addByPrefix('idle', 'BF IDLE DANCE', 24, false);
 				animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
 				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
 				animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);
@@ -2364,41 +2397,36 @@ class Character extends FlxSprite
 				loadOffsetFile(curCharacter);
 				barColor = FlxColor.fromRGB(186, 123, 66);
 
-				//for (1 in 4096)
-				//{
-					frames = Paths.getSparrowAtlas('characters/BOYFRIEND_Shiny', 'shared');
+				// GET SILLY (I think this will work)
+				default:
+				//var customPlayableChar = CoolUtil.coolTextFile(Paths.txt('CustomChars/' + curCharacter + '/anims'));
+				if (FileSystem.exists(Paths.txt('CustomChars/' + curCharacter))) {
+				var customPlayableChar = CoolUtil.coolTextFile(Paths.txt('CustomChars/' + curCharacter));
 
-					animation.addByPrefix('idle', 'BF idle dance', 24, false);
-					animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
-					animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
-					animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);
-					animation.addByPrefix('singDOWN', 'BF NOTE DOWN0', 24, false);
-					animation.addByPrefix('singUPmiss', 'BF NOTE UP MISS', 24, false);
-					animation.addByPrefix('singLEFTmiss', 'BF NOTE LEFT MISS', 24, false);
-					animation.addByPrefix('singRIGHTmiss', 'BF NOTE RIGHT MISS', 24, false);
-					animation.addByPrefix('singDOWNmiss', 'BF NOTE DOWN MISS', 24, false);
-					animation.addByPrefix('hey', 'BF HEY', 24, false);
-
-					animation.addByPrefix('firstDeath', "BF dies", 24, false);
-					animation.addByPrefix('deathLoop', "BF Dead Loop", 24, true);
-					animation.addByPrefix('deathConfirm', "BF Dead confirm", 24, false);
-					animation.addByPrefix('dodge', "boyfriend dodge", 24, false);
-					animation.addByPrefix('scared', 'BF idle shaking', 24);
-					animation.addByPrefix('hit', 'BF hit', 24, false);
-
-					loadOffsetFile('bf-shiny');
-
-					skins.set('gfSkin', 'gf');
-					skins.set('3d', 'bf-3d');
-
-					barColor = FlxColor.fromRGB(49, 176, 209);
-
-					playAnim('idle');
-
-					nativelyPlayable = true;
-
-					flipX = true;
-				//} else {
+				for (i in 0...customPlayableChar.length)
+					{
+						var data:Array<String> = customPlayableChar[i].split(':');
+						trace('break in 2');
+						frames = Paths.getCustomSparrowAtlas('characters/custom/${curCharacter}', 'shared');
+		
+						animation.addByPrefix('idle', data[0], 24, false);
+						animation.addByPrefix('singUP', data[1], 24, false);
+						animation.addByPrefix('singRIGHT', data[2], 24, false);
+						animation.addByPrefix('singDOWN', data[3], 24, false);
+						animation.addByPrefix('singLEFT', data[4], 24, false);
+						
+						loadOffsetFile(curCharacter);
+				
+						globalOffset = [Std.parseInt(data[5]), Std.parseInt(data[6])];
+					//	barColor = FlxColor.fromRGB(Std.parseInt(data[7]), Std.parseInt(data[8]), Std.parseInt(data[9]));
+						barColor = FlxColor.fromString(data[7]);
+		
+						playAnim('idle');
+						antialiasing = false;
+						nativelyPlayable = true;
+						flipX = true;
+					} 
+				} else {
 				frames = Paths.getSparrowAtlas('characters/BOYFRIEND', 'shared');
 				
 				animation.addByPrefix('idle', 'BF idle dance', 24, false);
@@ -2431,7 +2459,7 @@ class Character extends FlxSprite
 				nativelyPlayable = true;
 
 				flipX = true;
-				}//
+				}
 		}
 		dance();
 
