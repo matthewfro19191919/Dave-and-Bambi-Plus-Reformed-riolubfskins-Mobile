@@ -6,16 +6,16 @@ name: Pc/Desktop + Release
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: [ riolubfskin ]
+    branches: [ main, riolubfskin ]
   pull_request:
-    branches: [ riolubfskin ]
+    branches: [ main, riolubfskin ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 env:
   PROJECT_NAME: VsDavePlusReformed
-  REPO_PATH:  MatthewFro191919/Dave-and-Bambi-Plus-Reformed-riolubfskins-Mobile-4
+  REPO_PATH: matthewfro19191919/Dave-and-Bambi-Plus-Reformed-riolubfskins-Mobile
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
